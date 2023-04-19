@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commerce App</title>
+</head>
+<body>
+  <form onsubmit="save(event)">
+        <label for="">Selling Price</label>
+        <input id="amount" type="number"placeholder="Enter amount"  name="amount">
+        <label for="">Product Name</label>
+        <input type="text" placeholder="Item" name="product">
+        <button type="submit">Add Product</button>
+    </form>
+    <h1>Product</h1>
+    <ul id="listofproducts"></ul>
+    <h2 id="H2">Total value worth of products is Rs</h2>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.3/axios.min.js"></script>
+  <script src="index.js"></script>
+</body>
+</html>
