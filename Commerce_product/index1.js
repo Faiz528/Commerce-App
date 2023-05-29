@@ -1,4 +1,6 @@
 var total=0;
+var a =document.getElementById('amount')
+ var b=   document.getElementById('products')
 async function save(event){
     event.preventDefault()
     var price = event.target.price.value;
@@ -19,7 +21,8 @@ async function save(event){
             total = total + parseInt(response.data.Price)
             console.log(total);
             document.getElementById('H2').innerText = `Total value worth of products is Rs: ${total}`;
-
+            a.value=''
+            b.value=''
     }
     catch(err){
         console.log(err);
@@ -56,7 +59,7 @@ async function save(event){
     <li id=${ item.id}> 
       Price: ${item.Price} -
       Product: ${ item.Product}-
-      <button onclick="remove('${ item.id}')">DELETE</button></form> 
+      <button onclick="remove('${ item.id}','${item.Price}')">DELETE</button></form> 
     </li> 
   ` 
   list.innerHTML += childHTML 
@@ -65,12 +68,16 @@ async function save(event){
   }
 }
 
-async function remove(userId)
+async function remove(userId, Price)
 {
   try{
+    total = total - Price
    await axios.delete(`http://localhost:3000/delete/${userId}`)
   list.remove(userId)
-  window.location.reload(true);
+   a.value=''
+    b.value=''
+    document.getElementById('H2').innerText = `Total value worth of products is Rs: ${total}`;
+  
            
   }
   catch(err){
