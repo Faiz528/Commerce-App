@@ -28,6 +28,7 @@ exports.DeleteItem=(req,res,next)=>{
     Cart.findByPk(req.params.id).then(item=>{
         item.destroy()
     }).then(items=>{
+        res.json(items)
         console.log(items)
     }).catch(err=>{
         console.log(err)
